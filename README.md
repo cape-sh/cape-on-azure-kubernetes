@@ -1,13 +1,12 @@
 # CAPE on AKS
-Cape deployment steps in azure kubernetes
+Deployment steps for CAPE on Azure Kubernetes Service (AKS):
 
 > Login to Azure Shell
 
 Click to connect : [Azure Shell](https://shell.azure.com/)
 
-> Follow the Steps 
+> Create an Azure resource group and an AKS cluster
 
-> Create Azure resource group and AKS cluster
 ```bash
 az group create -n capeResGrp --location EastUS2
 
@@ -16,7 +15,7 @@ az aks create --resource-group capeResGrp --name capeakscluzter -s Standard_B2ms
 az aks get-credentials --resource-group capeResGrp --name capeakscluzter 
 ```
 
-> Get a Public IP for AKS by below steps
+> Get a public IP for AKS by following the steps below
 
 ```bash
 kubectl create namespace ingress-basic
@@ -48,6 +47,7 @@ helm install cape-install cape/cape \
 kubectl -n cape wait --for=condition=available --timeout=600s deployment/web
 
 ```
-> Access CAPE GUI
+
+> Access the CAPE GUI
 
 open https://${IP}.nip.io
