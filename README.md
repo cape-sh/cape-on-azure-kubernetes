@@ -42,7 +42,7 @@ helm repo add cape https://charts.cape.sh
 helm repo update
 helm install cape-install cape/cape \
 --set ingress.hostname=${IP}.nip.io \
---set scheme=http \
+--set scheme=https \
 --set licence="free10nodes"
 
 kubectl -n cape wait --for=condition=available --timeout=600s deployment/web
