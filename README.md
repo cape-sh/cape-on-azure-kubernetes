@@ -50,4 +50,4 @@ kubectl -n cape wait --for=condition=available --timeout=600s deployment/web
 ```
 > Access CAPE GUI
 
-open http://${IP}.nip.io
+open https://${IP}.nip.io
